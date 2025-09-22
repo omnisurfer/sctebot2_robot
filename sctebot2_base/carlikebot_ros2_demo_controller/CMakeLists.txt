@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(ros2_control_demo_example_11 LANGUAGES CXX)
+project(carlikebot_ros2_demo_controller LANGUAGES CXX)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
   add_compile_options(-Wall -Wextra)
@@ -25,30 +25,30 @@ endforeach()
 
 ## COMPILE
 add_library(
-  ${PROJECT_NAME}
+  carlikebot_ros2_demo_controller
   SHARED
-  carlikebot_system.cpp
+  hardware/carlikebot_system.cpp
 )
-target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
-target_include_directories(${PROJECT_NAME} PUBLIC
-$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-$<INSTALL_INTERFACE:include/${PROJECT_NAME}>
+target_compile_features(carlikebot_ros2_demo_controller PUBLIC cxx_std_17)
+target_include_directories(carlikebot_ros2_demo_controller PUBLIC
+$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/hardware/include>
+$<INSTALL_INTERFACE:include/carlikebot_ros2_demo_controller>
 )
 ament_target_dependencies(
-  ${PROJECT_NAME} PUBLIC
+  carlikebot_ros2_demo_controller PUBLIC
   ${THIS_PACKAGE_INCLUDE_DEPENDS}
 )
 
 # Export hardware plugins
-pluginlib_export_plugin_description_file(hardware_interface ${PROJECT_NAME}.xml)
+pluginlib_export_plugin_description_file(hardware_interface carlikebot_ros2_demo_controller.xml)
 
 # INSTALL
 install(
-  DIRECTORY include/
-  DESTINATION include/${PROJECT_NAME}
+  DIRECTORY hardware/include/
+  DESTINATION include/carlikebot_ros2_demo_controller
 )
-install(TARGETS ${PROJECT_NAME}
-  EXPORT export_${PROJECT_NAME}
+install(TARGETS carlikebot_ros2_demo_controller
+  EXPORT export_carlikebot_ros2_demo_controller
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
@@ -64,6 +64,6 @@ if(BUILD_TESTING)
 endif()
 
 ## EXPORTS
-ament_export_targets(export_ros2_control_demo_example_11 HAS_LIBRARY_TARGET)
+ament_export_targets(export_carlikebot_ros2_demo_controller HAS_LIBRARY_TARGET)
 ament_export_dependencies(${THIS_PACKAGE_INCLUDE_DEPENDS})
 ament_package()

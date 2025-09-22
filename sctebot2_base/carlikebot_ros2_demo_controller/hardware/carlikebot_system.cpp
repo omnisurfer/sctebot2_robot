@@ -26,7 +26,7 @@
 #include "hardware_interface/types/hardware_interface_type_values.hpp"
 #include "rclcpp/rclcpp.hpp"
 
-namespace ros2_control_demo_example_11
+namespace carlikebot_ros2_demo_controller
 {
 hardware_interface::CallbackReturn CarlikeBotSystemHardware::on_init(
   const hardware_interface::HardwareInfo & info)
@@ -297,7 +297,7 @@ hardware_interface::return_type CarlikeBotSystemHardware::read(
   return hardware_interface::return_type::OK;
 }
 
-hardware_interface::return_type ros2_control_demo_example_11 ::CarlikeBotSystemHardware::write(
+hardware_interface::return_type carlikebot_ros2_demo_controller ::CarlikeBotSystemHardware::write(
   const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
   // BEGIN: This part here is for exemplary purposes - Please do not copy to your production code
@@ -318,8 +318,8 @@ hardware_interface::return_type ros2_control_demo_example_11 ::CarlikeBotSystemH
   return hardware_interface::return_type::OK;
 }
 
-}  // namespace ros2_control_demo_example_11
+}  // namespace carlikebot_ros2_demo_controller
 
 #include "pluginlib/class_list_macros.hpp"
 PLUGINLIB_EXPORT_CLASS(
-  ros2_control_demo_example_11::CarlikeBotSystemHardware, hardware_interface::SystemInterface)
+  carlikebot_ros2_demo_controller::CarlikeBotSystemHardware, hardware_interface::SystemInterface)

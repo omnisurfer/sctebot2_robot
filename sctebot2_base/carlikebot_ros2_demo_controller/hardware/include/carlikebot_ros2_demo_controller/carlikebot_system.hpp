@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ROS2_CONTROL_DEMO_EXAMPLE_11__CARLIKEBOT_SYSTEM_HPP_
-#define ROS2_CONTROL_DEMO_EXAMPLE_11__CARLIKEBOT_SYSTEM_HPP_
+#ifndef CARLIKEBOT_ROS2_DEMO_CONTROLLER__CARLIKEBOT_SYSTEM_HPP_
+#define CARLIKEBOT_ROS2_DEMO_CONTROLLER__CARLIKEBOT_SYSTEM_HPP_
 
 #include <map>
 #include <memory>
@@ -33,7 +33,7 @@
 #include "rclcpp_lifecycle/node_interfaces/lifecycle_node_interface.hpp"
 #include "rclcpp_lifecycle/state.hpp"
 
-namespace ros2_control_demo_example_11
+namespace carlikebot_ros2_demo_controller
 {
 struct JointValue
 {
@@ -106,6 +106,6 @@ private:
   std::map<std::string, Joint> hw_interfaces_;
 };
 
-}  // namespace ros2_control_demo_example_11
+}  // namespace carlikebot_ros2_demo_controller
 
 #endif  // ROS2_CONTROL_DEMO_EXAMPLE_11__CARLIKEBOT_SYSTEM_HPP_
