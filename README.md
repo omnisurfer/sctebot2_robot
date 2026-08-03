@@ -14,16 +14,20 @@ ros2 launch sctebot2_viz view_model.launch.py
 colcon build --symlink-install
 ```
 
-# Useful tools
+# Useful commands
 ```
 ros2 run rqt_topic rqt_topic
 
 ros2 topic echo /<topic name>
+
+docker exec -it <container_name_or_id> bash
 ``
 
 # TODO:
 1) Get robot description to launch in a container.
-2) Get RVIZ to launch in a container.
+    [ ] Find way to determine if joint_state_publisher is already running and if so, do not start another instance.
+    [ ] Find way to get "realsense_description" and other description modules loaded into the "install" space of the robot model.
+2) Get RVIZ to launch in a container (or not..?).
     - Note: current RVIZ launch file also launches the description. This may need to be undone so that two robot_descriptions and joint states aren't published at the same time. Put another way, RVIZ should just launch the GUI and nothing else.
 3) Get sensors to launch in a container.
 4) Verify sensors show up in RVIZ when running in the container.
